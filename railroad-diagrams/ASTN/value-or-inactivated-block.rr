@@ -1,0 +1,16 @@
+ComplexDiagram(
+    Choice(
+        0,
+        Sequence(
+            NonTerminal('value')
+        ),
+        Group(
+            Sequence(
+                Terminal('#-', {cls:'ASTN'}),
+                NonTerminal('array-of-values-and-inactivated-blocks', {cls:'ASTN'}),
+                Terminal('-#', {cls:'ASTN'})
+            ),
+            Comment('inactivated block', {cls:'ASTN'})
+        )
+    )
+)

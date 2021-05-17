@@ -1,0 +1,13 @@
+ComplexDiagram(
+    ZeroOrMore(
+        Choice(
+            0,
+            Sequence('', Comment('space')),
+            Sequence('', Comment('line feed')),
+            Sequence('', Comment('carriage return')),
+            Sequence('', Comment('horizontal tab'))
+        ),
+        '',
+        'skip'
+    )
+)

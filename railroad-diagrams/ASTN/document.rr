@@ -1,0 +1,29 @@
+ComplexDiagram(
+    Choice(
+        0,
+        Skip(),
+        Sequence(
+            Terminal('!', {cls:'ASTN'}),
+            Choice(
+                0,
+                Sequence(
+                    NonTerminal('string', {cls:'ASTN'})
+                ),
+                Sequence(
+                    Terminal('#', {cls:'ASTN'}),
+                    NonTerminal('document', {cls:'ASTN'})
+                ),
+
+            )
+
+        )
+    ),
+    Optional(
+        Terminal('#', {cls:'ASTN'}),
+        'skip'
+    ),
+    Group(
+        NonTerminal('value'),
+        Comment('body')
+    )
+)

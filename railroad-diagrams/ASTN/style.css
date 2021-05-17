@@ -1,0 +1,7 @@
+g.ASTN rect {
+    fill: hsl(195, 100%, 50%);
+}
+
+g.comment.ASTN text {
+    stroke: hsl(195, 100%, 20%);
+}

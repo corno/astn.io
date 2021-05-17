@@ -1,0 +1,12 @@
+ComplexDiagram(
+    Choice(
+        0,
+        NonTerminal('object'),
+        NonTerminal('array'),
+        NonTerminal('number'),
+        NonTerminal('string'),
+        'true',
+        'false',
+        'null'
+    )
+)

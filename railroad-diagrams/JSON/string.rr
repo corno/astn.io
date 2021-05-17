@@ -1,0 +1,28 @@
+ComplexDiagram(
+    '"',
+    ZeroOrMore(
+        Choice(
+            0,
+            NonTerminal('Any code point except " or \\ or control character'),
+            Sequence(
+                '\\',
+                Choice(
+                    0,
+                    Sequence('"', Comment('quotation mark')),
+                    Sequence('\\', Comment('reverse solidus')),
+                    Sequence('/', Comment('solidus')),
+                    Sequence('b', Comment('backspace')),
+                    Sequence('f', Comment('form feed')),
+                    Sequence('n', Comment('line feed')),
+                    Sequence('r', Comment('carriage return')),
+                    Sequence('t', Comment('character tabulation')),
+                    Sequence(
+                        'u',
+                        NonTerminal('4 hexadecimal digits')
+                    )
+                )
+            )
+        )
+    ),
+    '"'
+)

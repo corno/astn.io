@@ -1,0 +1,18 @@
+ComplexDiagram(
+    Choice(
+        0,
+        Sequence(
+            NonTerminal('string'),
+            Terminal(':'),
+            NonTerminal('value')
+        ),
+        Group(
+            Sequence(
+                Terminal('#-', {cls:'ASTN'}),
+                NonTerminal('array-of-key-value-pairs-and-inactivated-blocks', {cls:'ASTN'}),
+                Terminal('-#', {cls:'ASTN'})
+            ),
+            Comment('inactivated block', {cls:'ASTN'})
+        )
+    )
+)

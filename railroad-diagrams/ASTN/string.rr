@@ -1,0 +1,30 @@
+ComplexDiagram(
+    Choice(
+        0,
+        Sequence(
+            '"',
+            ZeroOrMore(
+                Choice(
+                    0,
+                    NonTerminal('Any code point except " or \\ or control character'),
+                    NonTerminal('escaped-character')
+                )
+            ),
+            '"'
+        ),
+        Group(
+            Sequence(
+                Terminal('\'', {cls:'ASTN'}),
+                ZeroOrMore(
+                    Choice(
+                        0,
+                        NonTerminal('Any code point except \' or \\ or control character', {cls:'ASTN'}),
+                        NonTerminal('escaped-character', {cls:'ASTN'})
+                    )
+                ),
+                Terminal('\'', {cls:'ASTN'})
+            ),
+            Comment('aposthrophed string', {cls:'ASTN'})
+        )
+    )
+)

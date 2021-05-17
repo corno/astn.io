@@ -1,0 +1,12 @@
+ComplexDiagram(
+    '{',
+    ZeroOrMore(
+        Sequence(
+            NonTerminal('string'),
+            ':',
+            NonTerminal('value')
+        ),
+        ','
+    ),
+    '}',
+)

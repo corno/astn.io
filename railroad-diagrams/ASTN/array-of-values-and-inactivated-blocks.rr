@@ -1,0 +1,18 @@
+ComplexDiagram(
+    Optional(
+        Sequence(
+            NonTerminal('value-or-inactivated-block'),
+            ZeroOrMore(
+                Choice(
+                    0,
+                    Comment('comma can be omitted', {cls:'ASTN'}),
+                    ','
+                ),
+                NonTerminal('value-or-inactivated-block'),
+            ),
+            Optional(
+                Terminal(',', {cls:'ASTN'})
+            )
+        ),
+    )
+)

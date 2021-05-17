@@ -1,0 +1,8 @@
+ComplexDiagram(
+    '[',
+    ZeroOrMore(
+        NonTerminal('value'),
+        ','
+    ),
+    ']',
+)
