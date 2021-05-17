@@ -6,10 +6,13 @@ ComplexDiagram(
         'null',
         NonTerminal('number'),
         NonTerminal('string'),
-        Sequence(
-            '{',
-            NonTerminal('array-of-key-value-pairs-and-inactivated-blocks'),
-            '}'
+        Group(
+            Sequence(
+                Terminal('{'),
+                NonTerminal('array-of-key-value-pairs-and-inactivated-blocks'),
+                Terminal('}'),
+            ),
+            Comment('object')
         ),
         Group(
             Sequence(
@@ -19,10 +22,13 @@ ComplexDiagram(
             ),
             Comment('type', {cls:'ASTN'})
         ),
-        Sequence(
-            '[',
-            NonTerminal('array-of-values-and-inactivated-blocks'),
-            ']'
+        Group(
+            Sequence(
+                Terminal('['),
+                NonTerminal('array-of-values-and-inactivated-blocks'),
+                Terminal(']'),
+            ),
+            Comment('array')
         ),
         Group(
             Sequence(
