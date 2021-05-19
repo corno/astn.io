@@ -122,11 +122,11 @@ if the code point is a ", a ' or a ` and not within a string wrapped in the same
 
 ## whitespace
 The canonical use of whitespace is described in the railroad diagrams. There are 3 options:
-name | whitespace allowed | canonical form
---|--|--
-ws:ss | yes | single space
-ws:n | yes | no whitespace
-ws:nl | yes | newline and proper indentation
+| name | whitespace allowed | canonical form |
+|--|--|--|
+| ws:ss | yes | single space |
+| ws:n | yes | no whitespace |
+| ws:nl | yes | newline and proper indentation |
 
 FIX: multiline indentation
 
