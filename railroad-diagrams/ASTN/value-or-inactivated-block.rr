@@ -2,15 +2,24 @@ ComplexDiagram(
     Choice(
         0,
         Sequence(
-            NonTerminal('value')
+            Optional(
+                Sequence(
+                    Terminal('ws:nl', {cls:'whitespace'}),
+                    NonTerminal('comment', {cls:'added'}),
+                ),
+                'skip'
+            ),
+            Terminal('ws:nl', {cls:'whitespace'}),
+            NonTerminal('value', {cls:'changed'}),
         ),
         Group(
             Sequence(
-                Terminal('#-', {cls:'ASTN'}),
-                NonTerminal('array-of-values-and-inactivated-blocks', {cls:'ASTN'}),
-                Terminal('-#', {cls:'ASTN'})
+                Terminal('ws:nl', {cls:'whitespace'}),
+                Terminal('#-', {cls:'added'}),
+                NonTerminal('array-of-values-and-inactivated-blocks', {cls:'changed'}),
+                Terminal('-#', {cls:'added'})
             ),
-            Comment('inactivated block', {cls:'ASTN'})
+            Comment('inactivated block', {cls:'added'})
         )
     )
 )

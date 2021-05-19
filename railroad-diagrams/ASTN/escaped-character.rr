@@ -2,7 +2,8 @@ ComplexDiagram(
     '\\',
     Choice(
         0,
-        Sequence(Terminal('\'', {cls:'ASTN'}), Comment('aposthrophe')),
+        Sequence(Terminal('\'', {cls:'added'}), Comment('aposthrophe')),
+        Sequence(Terminal('\`', {cls:'added'}), Comment('backtick')),
         Sequence('"', Comment('quotation mark')),
         Sequence('\\', Comment('reverse solidus')),
         Sequence('/', Comment('solidus')),

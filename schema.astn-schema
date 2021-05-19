@@ -1,0 +1,113 @@
+! "mrshl/schemaschema@0.1"
+(
+    'component types': {
+        "snippet" :(
+            'node': (
+                'properties': {
+                    "type": (
+                        'type': | 'state group' (
+                            'default state': "terminal"
+                            'states': {
+                                "sequence": (
+                                    'node': (
+                                        'properties': {
+                                            "elements": (
+                                                'type': | 'collection' (
+                                                    'node': (
+                                                        'properties': {
+                                                            "snippet": (
+                                                                'type': | 'component' (
+                                                                    'type': "snippet"
+                                                                )
+                                                            )
+                                                        }
+                                                    )
+                                                )
+                                            )
+
+                                        }
+                                    )
+                                    // 'node': (
+                                    //     'properties' : {
+                                    //         "elements": (
+                                    //             'type': | 'collection' (
+                                    //                 'node': (
+                                    //                     'properties': {}
+                                    //                 )
+                                    //                 'type': | 'list' (
+                                    //                 )
+                                    //             )
+                                    //         )
+                                    //     }
+                                    // )
+                                )
+                                "terminal": (
+                                    'node': (
+                                        'properties': {
+                                            "value": ()
+                                            "class": ()
+                                        }
+                                    )
+                                )
+                                "zero or more": (
+                                    'node': (
+                                        'properties': {
+                                            "snippet": (
+                                                'type': | 'component' (
+                                                    'type': "snippet"
+                                                )
+                                            )
+                                        }
+                                    )
+                                )
+                                "choice": (
+                                    'node': (
+                                        'properties': {
+                                            "alternatives": (
+                                                'type': | 'collection' (
+                                                    'node': (
+                                                        'properties': {
+                                                            "name" : ()
+                                                            "snippet": (
+                                                                'type': | 'component' (
+                                                                    'type': "snippet"
+                                                                )
+                                                            )
+                                                        }
+                                                    )
+                                                    'type': | 'dictionary' (
+                                                    )
+                                                )
+                                            )
+                                        }
+                                    )
+                                )
+                            }
+                        )
+                    )
+                }
+            )
+        )
+        "root": (
+            'node': (
+                'properties': {
+                    "rules": (
+                        'type': | 'collection' (
+                            'node': (
+                                'properties': {
+                                    "name": ( )
+                                    "snippet" : (
+                                        'type': | 'component' (
+                                            'type': "snippet"
+                                        )
+                                    )
+                                }
+                            )
+                            'type': | 'dictionary' ( )
+                        )
+                    )
+                }
+            )
+        )
+    }
+)

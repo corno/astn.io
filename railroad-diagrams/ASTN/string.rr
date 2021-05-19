@@ -7,24 +7,38 @@ ComplexDiagram(
                 Choice(
                     0,
                     NonTerminal('Any code point except " or \\ or control character'),
-                    NonTerminal('escaped-character')
+                    NonTerminal('escaped-character', {cls:'changed'})
                 )
             ),
             '"'
         ),
         Group(
             Sequence(
-                Terminal('\'', {cls:'ASTN'}),
+                Terminal('\'', {cls:'added'}),
                 ZeroOrMore(
                     Choice(
                         0,
-                        NonTerminal('Any code point except \' or \\ or control character', {cls:'ASTN'}),
-                        NonTerminal('escaped-character', {cls:'ASTN'})
+                        NonTerminal('Any code point except \' or \\ or control character', {cls:'added'}),
+                        NonTerminal('escaped-character', {cls:'changed'})
                     )
                 ),
-                Terminal('\'', {cls:'ASTN'})
+                Terminal('\'', {cls:'added'})
             ),
-            Comment('aposthrophed string', {cls:'ASTN'})
+            Comment('aposthrophed string', {cls:'added'})
+        ),
+        Group(
+            Sequence(
+                Terminal('`', {cls:'added'}),
+                ZeroOrMore(
+                    Choice(
+                        0,
+                        NonTerminal('Any code point except ` or \\ or control character other than character tabulation, line feed or carriage return', {cls:'added'}),
+                        NonTerminal('escaped-character', {cls:'changed'})
+                    )
+                ),
+                Terminal('`', {cls:'added'})
+            ),
+            Comment('multiline string', {cls:'added'})
         )
     )
 )

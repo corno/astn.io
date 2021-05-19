@@ -1,17 +1,26 @@
 ComplexDiagram(
-    Optional(
+    Choice(
+        0,
+        Terminal('ws:ss', {cls: 'whitespace'}),
         Sequence(
-            NonTerminal('value-or-inactivated-block'),
+            NonTerminal('value-or-inactivated-block', {cls:'changed'}),
             ZeroOrMore(
                 Choice(
                     0,
-                    Comment('comma can be omitted', {cls:'ASTN'}),
-                    ','
+                    Comment('comma can be omitted', {cls:'added'}),
+                    Sequence(
+                        Terminal('ws:n', {cls: 'whitespace'}),
+                        ','
+                    )
                 ),
-                NonTerminal('value-or-inactivated-block'),
+                NonTerminal('value-or-inactivated-block', {cls:'changed'}),
             ),
             Optional(
-                Terminal(',', {cls:'ASTN'})
+                Sequence(
+                    Terminal('ws:n', {cls: 'whitespace'}),
+                    ',',
+                    Terminal('ws:nl', {cls: 'whitespace'}),
+                )
             )
         ),
     )

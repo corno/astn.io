@@ -1,0 +1,14 @@
+(
+    'document name': "ABC",
+    'authors': 
+    'paragraphs': [
+        (
+            'title': "intro",
+            'text': "this is the intro"
+        ),
+        "1": (
+            'title': "intro",
+            'text': "this is the intro"
+        )
+    }
+)

@@ -1,0 +1,7 @@
+ComplexDiagram(
+    Terminal('['),
+    Terminal('ws:indentation+', {cls:'whitespace'}),
+    NonTerminal('array-of-values-and-inactivated-blocks', {cls:'changed'}),
+    Terminal('ws:indentation-', {cls:'whitespace'}),
+    Terminal(']'),
+)

@@ -14,22 +14,22 @@ ComplexDiagram(
             ),
             Group(
                 Sequence(
-                    Terminal('//', {cls:'ASTN'}),
+                    Terminal('//', {cls:'added'}),
                     ZeroOrMore(
-                        NonTerminal('Any code point except \\n (line feed) or \\r (carriage return) or control character', {cls:'ASTN'})
+                        NonTerminal('Any code point except \\n (line feed) or \\r (carriage return) or control character', {cls:'added'})
                     ),
                 ),
-                Comment('line comment', {cls:'ASTN'})
+                Comment('line comment', {cls:'added'})
             ),
             Group(
                 Sequence(
-                    Terminal('/*', {cls:'ASTN'}),
+                    Terminal('/*', {cls:'added'}),
                     ZeroOrMore(
-                        NonTerminal('Any code point except * followed by / or control character', {cls:'ASTN'}),
+                        NonTerminal('Any code point except * followed by / or control character', {cls:'added'}),
                     ),
-                    Terminal('*/', {cls:'ASTN'}),
+                    Terminal('*/', {cls:'added'}),
                 ),
-                Comment('block comment', {cls:'ASTN'})
+                Comment('block comment', {cls:'added'})
             )
         ),
         '',

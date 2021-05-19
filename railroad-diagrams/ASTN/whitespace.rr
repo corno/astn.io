@@ -1,13 +1,32 @@
 ComplexDiagram(
-    ZeroOrMore(
-        Choice(
-            0,
-            Sequence('', Comment('space')),
-            Sequence('', Comment('line feed')),
-            Sequence('', Comment('carriage return')),
-            Sequence('', Comment('horizontal tab'))
+    Group(
+        ZeroOrMore(
+            Choice(
+                0,
+                Sequence('', Comment('space')),
+                Sequence('', Comment('horizontal tab')),
+            ),
         ),
-        '',
-        'skip'
+        Comment('intermediate space')
+    ),
+    ZeroOrMore(
+        Sequence(
+            Group(
+                Choice(
+                    0,
+                    Sequence('', Comment('line feed: \\n')),
+                    Sequence('', Comment('carriage return and line feed: \\r\\n  ')),
+                    Sequence('', Comment('carriage return not followed by a line feed: \\r  ')),
+                ),
+                Comment('line break')
+            ),
+            Group(
+                ZeroOrMore(
+                    Sequence('', Comment('space')),
+                    Sequence('', Comment('horizontal tab')),
+                ),
+                Comment('indentation')
+            )
+        )
     )
 )

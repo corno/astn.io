@@ -1,0 +1,59 @@
+ComplexDiagram(
+    Terminal('ws:n', {cls:'whitespace'}),
+    Group(       
+        Choice(
+            0,
+            Skip(),
+            Sequence(
+                Terminal('!', {cls:'added'}),
+                Terminal('ws:ss', {cls:'whitespace'}),
+                Choice(
+                    0,
+                    Sequence(
+                        Group(
+                            NonTerminal('string', {cls:'added'}),
+                            Comment('reference to external schema', {cls:'added'})
+                        )
+                    ),
+                    Sequence(
+                        Terminal('!', {cls:'added'}),
+                        Terminal('ws:ss', {cls:'whitespace'}),
+                        Group(
+                            NonTerminal('string', {cls:'added'}),
+                            Comment('reference to external schema schema', {cls:'added'})
+                        ),
+                        Terminal('ws:ss', {cls:'whitespace'}),
+                        Group(
+                            Optional(
+                                Sequence(
+                                    Terminal('ws:nl', {cls:'whitespace'}),
+                                    NonTerminal('comment', {cls:'added'}),
+                                ),
+                                'skip'
+                            ),
+                            NonTerminal('value', {cls:'added'}),
+                            Comment('internal schema', {cls:'added'})
+                        ),
+                    ),
+
+                ),
+                Terminal('ws:nl', {cls:'whitespace'}),
+
+
+            ),
+        ),
+        Comment('header')
+    ),
+    Group(
+        Optional(
+            Sequence(
+                Terminal('ws:nl', {cls:'whitespace'}),
+                NonTerminal('comment', {cls:'added'}),
+            ),
+            'skip'
+        ),
+        NonTerminal('value', {cls:'changed'}),
+        Comment('body')
+    ),
+    Terminal('ws:n', {cls:'whitespace'}),
+)

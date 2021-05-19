@@ -1,0 +1,11 @@
+ComplexDiagram(
+    Terminal('<`', {cls:'added'}),
+    ZeroOrMore(
+        Choice(
+            0,
+            NonTerminal('Any code point except ` or \\ or control character', {cls:'added'}),
+            NonTerminal('escaped-character', {cls:'changed'})
+        )
+    ),
+    Terminal('`', {cls:'added'})
+)

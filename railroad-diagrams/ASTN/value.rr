@@ -5,46 +5,11 @@ ComplexDiagram(
         'false',
         'null',
         NonTerminal('number'),
-        NonTerminal('string'),
-        Group(
-            Sequence(
-                Terminal('{'),
-                NonTerminal('array-of-key-value-pairs-and-inactivated-blocks'),
-                Terminal('}'),
-            ),
-            Comment('object')
-        ),
-        Group(
-            Sequence(
-                Terminal('(', {cls:'ASTN'}),
-                NonTerminal('array-of-key-value-pairs-and-inactivated-blocks', {cls:'ASTN'}),
-                Terminal(')', {cls:'ASTN'}),
-            ),
-            Comment('type', {cls:'ASTN'})
-        ),
-        Group(
-            Sequence(
-                Terminal('['),
-                NonTerminal('array-of-values-and-inactivated-blocks'),
-                Terminal(']'),
-            ),
-            Comment('array')
-        ),
-        Group(
-            Sequence(
-                Terminal('<', {cls:'ASTN'}),
-                NonTerminal('array-of-values-and-inactivated-blocks', {cls:'ASTN'}),
-                Terminal('>', {cls:'ASTN'}),
-            ),
-            Comment('array type', {cls:'ASTN'})
-        ),
-        Group(
-            Sequence(
-                NonTerminal('string', {cls:'ASTN'}),
-                Terminal('|', {cls:'ASTN'}),
-                NonTerminal('value', {cls:'ASTN'}),
-            ),
-            Comment('typed union', {cls:'ASTN'})
-        )
+        NonTerminal('string', {cls:'changed'}),
+        NonTerminal('object', {cls:'changed'}),
+        NonTerminal('array', {cls:'changed'}),
+        NonTerminal('type', {cls:'added'}),
+        NonTerminal('array type', {cls:'added'}),
+        NonTerminal('tagged union', {cls:'added'}),
     )
 )

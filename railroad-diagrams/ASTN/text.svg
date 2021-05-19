@@ -1,0 +1,231 @@
+<?xml-stylesheet type="text/css" href="style.css" ?>
+
+<svg class="railroad-diagram" width="1236" height="207" viewBox="0 0 1236 207" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g transform="translate(.5 .5)">
+	<g>
+	<path d="M20 45v20m0 -10h20"></path>
+	</g>
+	<path d="M40 55h10"></path>
+	<g class="terminal whitespace">
+	<path d="M50 55h0"></path>
+	<path d="M104 55h0"></path>
+	<rect x="50" y="44" width="54" height="22" rx="10" ry="10"></rect>
+	<text x="77" y="59">ws:n</text>
+	</g>
+	<path d="M104 55h10"></path>
+	<path d="M114 55h10"></path>
+	<g>
+	<path d="M124 55h0"></path>
+	<path d="M1001 55h0"></path>
+	<rect x="124" y="45" width="877" height="142" rx="10" ry="10" class="group-box"></rect>
+	<g>
+	<path d="M124 55h0"></path>
+	<path d="M1001 55h0"></path>
+	<path d="M124 55h20"></path>
+	<g>
+	<path d="M144 55h837"></path>
+	</g>
+	<path d="M981 55h20"></path>
+	<path d="M124 55a10 10 0 0 1 10 10v23a10 10 0 0 0 10 10"></path>
+	<g>
+	<path d="M144 98h0"></path>
+	<path d="M981 98h0"></path>
+	<g class="terminal added">
+	<path d="M144 98h0"></path>
+	<path d="M172.5 98h0"></path>
+	<rect x="144" y="87" width="28.5" height="22" rx="10" ry="10"></rect>
+	<text x="158.25" y="102">!</text>
+	</g>
+	<path d="M172.5 98h10"></path>
+	<path d="M182.5 98h10"></path>
+	<g class="terminal whitespace">
+	<path d="M192.5 98h0"></path>
+	<path d="M255 98h0"></path>
+	<rect x="192.5" y="87" width="62.5" height="22" rx="10" ry="10"></rect>
+	<text x="223.75" y="102">ws:ss</text>
+	</g>
+	<path d="M255 98h10"></path>
+	<g>
+	<path d="M265 98h0"></path>
+	<path d="M908.5 98h0"></path>
+	<path d="M265 98h20"></path>
+	<g>
+	<path d="M285 98h198.75"></path>
+	<path d="M689.75 98h198.75"></path>
+	<g>
+	<path d="M483.75 98h0"></path>
+	<path d="M689.75 98h0"></path>
+	<rect x="483.75" y="79" width="206" height="38" rx="10" ry="10" class="group-box"></rect>
+	<g class="non-terminal added">
+	<path d="M483.75 98h67.5"></path>
+	<path d="M622.25 98h67.5"></path>
+	<rect x="551.25" y="87" width="71" height="22"></rect>
+	<text x="586.75" y="102">string</text>
+	</g>
+	<g class="comment added">
+	<path d="M483.75 71h0"></path>
+	<path d="M689.75 71h0"></path>
+	<text x="586.75" y="76" class="comment">reference to external schema</text>
+	</g>
+	</g>
+	</g>
+	<path d="M888.5 98h20"></path>
+	<path d="M265 98a10 10 0 0 1 10 10v42a10 10 0 0 0 10 10"></path>
+	<g>
+	<path d="M285 160h0"></path>
+	<path d="M888.5 160h0"></path>
+	<g class="terminal added">
+	<path d="M285 160h0"></path>
+	<path d="M313.5 160h0"></path>
+	<rect x="285" y="149" width="28.5" height="22" rx="10" ry="10"></rect>
+	<text x="299.25" y="164">!</text>
+	</g>
+	<path d="M313.5 160h10"></path>
+	<path d="M323.5 160h10"></path>
+	<g class="terminal whitespace">
+	<path d="M333.5 160h0"></path>
+	<path d="M396 160h0"></path>
+	<rect x="333.5" y="149" width="62.5" height="22" rx="10" ry="10"></rect>
+	<text x="364.75" y="164">ws:ss</text>
+	</g>
+	<path d="M396 160h10"></path>
+	<path d="M406 160h10"></path>
+	<g>
+	<path d="M416 160h0"></path>
+	<path d="M671 160h0"></path>
+	<rect x="416" y="141" width="255" height="38" rx="10" ry="10" class="group-box"></rect>
+	<g class="non-terminal added">
+	<path d="M416 160h92"></path>
+	<path d="M579 160h92"></path>
+	<rect x="508" y="149" width="71" height="22"></rect>
+	<text x="543.5" y="164">string</text>
+	</g>
+	<g class="comment added">
+	<path d="M416 133h0"></path>
+	<path d="M671 133h0"></path>
+	<text x="543.5" y="138" class="comment">reference to external schema schema</text>
+	</g>
+	</g>
+	<path d="M671 160h10"></path>
+	<path d="M681 160h10"></path>
+	<g class="terminal whitespace">
+	<path d="M691 160h0"></path>
+	<path d="M753.5 160h0"></path>
+	<rect x="691" y="149" width="62.5" height="22" rx="10" ry="10"></rect>
+	<text x="722.25" y="164">ws:ss</text>
+	</g>
+	<path d="M753.5 160h10"></path>
+	<path d="M763.5 160h10"></path>
+	<g>
+	<path d="M773.5 160h0"></path>
+	<path d="M888.5 160h0"></path>
+	<rect x="773.5" y="141" width="115" height="38" rx="10" ry="10" class="group-box"></rect>
+	<g class="non-terminal added">
+	<path d="M773.5 160h26.25"></path>
+	<path d="M862.25 160h26.25"></path>
+	<rect x="799.75" y="149" width="62.5" height="22"></rect>
+	<text x="831" y="164">value</text>
+	</g>
+	<g class="comment added">
+	<path d="M773.5 133h0"></path>
+	<path d="M888.5 133h0"></path>
+	<text x="831" y="138" class="comment">internal schema</text>
+	</g>
+	</g>
+	</g>
+	<path d="M888.5 160a10 10 0 0 0 10 -10v-42a10 10 0 0 1 10 -10"></path>
+	</g>
+	<path d="M908.5 98h10"></path>
+	<g class="terminal whitespace">
+	<path d="M918.5 98h0"></path>
+	<path d="M981 98h0"></path>
+	<rect x="918.5" y="87" width="62.5" height="22" rx="10" ry="10"></rect>
+	<text x="949.75" y="102">ws:nl</text>
+	</g>
+	</g>
+	<path d="M981 98a10 10 0 0 0 10 -10v-23a10 10 0 0 1 10 -10"></path>
+	</g>
+	<g class="comment ">
+	<path d="M124 37h0"></path>
+	<path d="M176 37h0"></path>
+	<text x="150" y="42" class="comment">header</text>
+	</g>
+	</g>
+	<path d="M1001 55h10"></path>
+	<path d="M1011 55h10"></path>
+	<g>
+	<path d="M1021 55h0"></path>
+	<path d="M1103.5 55h0"></path>
+	<rect x="1021" y="36" width="82.5" height="38" rx="10" ry="10" class="group-box"></rect>
+	<g class="non-terminal changed">
+	<path d="M1021 55h10"></path>
+	<path d="M1093.5 55h10"></path>
+	<rect x="1031" y="44" width="62.5" height="22"></rect>
+	<text x="1062.25" y="59">value</text>
+	</g>
+	<g class="comment ">
+	<path d="M1021 28h0"></path>
+	<path d="M1059 28h0"></path>
+	<text x="1040" y="33" class="comment">body</text>
+	</g>
+	</g>
+	<path d="M1103.5 55h10"></path>
+	<path d="M1113.5 55h10"></path>
+	<g class="terminal whitespace">
+	<path d="M1123.5 55h0"></path>
+	<path d="M1186 55h0"></path>
+	<rect x="1123.5" y="44" width="62.5" height="22" rx="10" ry="10"></rect>
+	<text x="1154.75" y="59">ws:nl</text>
+	</g>
+	<path d="M1186 55h10"></path>
+	<path d="M 1196 55 h 20 m 0 -10 v 20"></path>
+	</g>
+	<style>
+		svg {
+			background-color: hsl(30,20%,95%);
+		}
+		path {
+			stroke-width: 3;
+			stroke: black;
+			fill: rgba(0,0,0,0);
+		}
+		text {
+			font: bold 14px monospace;
+			text-anchor: middle;
+			white-space: pre;
+		}
+		text.diagram-text {
+			font-size: 12px;
+		}
+		text.diagram-arrow {
+			font-size: 16px;
+		}
+		text.label {
+			text-anchor: start;
+		}
+		text.comment {
+			font: italic 12px monospace;
+		}
+		g.non-terminal text {
+			/&#42;font-style: italic;&#42;/
+		}
+		rect {
+			stroke-width: 3;
+			stroke: black;
+			fill: hsl(120,100%,90%);
+		}
+		rect.group-box {
+			stroke: gray;
+			stroke-dasharray: 10 5;
+			fill: none;
+		}
+		path.diagram-text {
+			stroke-width: 3;
+			stroke: black;
+			fill: white;
+			cursor: help;
+		}
+		g.diagram-text:hover path.diagram-text {
+			fill: #eee;
+		}</style>
+	</svg>

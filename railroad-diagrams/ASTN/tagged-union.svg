@@ -1,0 +1,98 @@
+<?xml-stylesheet type="text/css" href="style.css" ?>
+
+<svg class="railroad-diagram" width="467" height="62" viewBox="0 0 467 62" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g transform="translate(.5 .5)">
+	<g>
+	<path d="M20 21v20m0 -10h20"></path>
+	</g>
+	<path d="M40 31h10"></path>
+	<g class="terminal added">
+	<path d="M50 31h0"></path>
+	<path d="M78.5 31h0"></path>
+	<rect x="50" y="20" width="28.5" height="22" rx="10" ry="10"></rect>
+	<text x="64.25" y="35">|</text>
+	</g>
+	<path d="M78.5 31h10"></path>
+	<path d="M88.5 31h10"></path>
+	<g class="terminal whitespace">
+	<path d="M98.5 31h0"></path>
+	<path d="M161 31h0"></path>
+	<rect x="98.5" y="20" width="62.5" height="22" rx="10" ry="10"></rect>
+	<text x="129.75" y="35">ws:ss</text>
+	</g>
+	<path d="M161 31h10"></path>
+	<path d="M171 31h10"></path>
+	<g class="non-terminal changed">
+	<path d="M181 31h0"></path>
+	<path d="M252 31h0"></path>
+	<rect x="181" y="20" width="71" height="22"></rect>
+	<text x="216.5" y="35">string</text>
+	</g>
+	<path d="M252 31h10"></path>
+	<path d="M262 31h10"></path>
+	<g class="terminal whitespace">
+	<path d="M272 31h0"></path>
+	<path d="M334.5 31h0"></path>
+	<rect x="272" y="20" width="62.5" height="22" rx="10" ry="10"></rect>
+	<text x="303.25" y="35">ws:ss</text>
+	</g>
+	<path d="M334.5 31h10"></path>
+	<path d="M344.5 31h10"></path>
+	<g class="non-terminal changed">
+	<path d="M354.5 31h0"></path>
+	<path d="M417 31h0"></path>
+	<rect x="354.5" y="20" width="62.5" height="22"></rect>
+	<text x="385.75" y="35">value</text>
+	</g>
+	<path d="M417 31h10"></path>
+	<path d="M 427 31 h 20 m 0 -10 v 20"></path>
+	</g>
+	<style>
+		svg {
+			background-color: hsl(30,20%,95%);
+		}
+		path {
+			stroke-width: 3;
+			stroke: black;
+			fill: rgba(0,0,0,0);
+		}
+		text {
+			font: bold 14px monospace;
+			text-anchor: middle;
+			white-space: pre;
+		}
+		text.diagram-text {
+			font-size: 12px;
+		}
+		text.diagram-arrow {
+			font-size: 16px;
+		}
+		text.label {
+			text-anchor: start;
+		}
+		text.comment {
+			font: italic 12px monospace;
+		}
+		g.non-terminal text {
+			/&#42;font-style: italic;&#42;/
+		}
+		rect {
+			stroke-width: 3;
+			stroke: black;
+			fill: hsl(120,100%,90%);
+		}
+		rect.group-box {
+			stroke: gray;
+			stroke-dasharray: 10 5;
+			fill: none;
+		}
+		path.diagram-text {
+			stroke-width: 3;
+			stroke: black;
+			fill: white;
+			cursor: help;
+		}
+		g.diagram-text:hover path.diagram-text {
+			fill: #eee;
+		}</style>
+	</svg>

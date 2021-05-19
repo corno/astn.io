@@ -10,10 +10,6 @@ g.changed rect {
     fill: hsl(54, 100%, 45%);
 }
 
-g.whitespace rect {
-    fill: hsl(60, 1%, 80%);
-}
-
 g.comment.changed text {
     stroke: hsl(59, 100%, 20%);
 }
