@@ -85,52 +85,8 @@ A string line in an indented string that does not start with the reference inden
 
 # Types
 [railroad diagrams](./railroads.html)
-<!-- ASTN supports several types.
 
-
-
-## text
-In JSON, a `text` is identical to a JSON `value`. In ASTN it is defined as follows:
-
-
-![text](./railroad-diagrams/ASTN/text.svg "text")
-
-
-## value
-![value](./railroad-diagrams/ASTN/value.svg "value")
-
-
-## number
-An ASTN number is identical to a JSON number
-![number](./railroad-diagrams/ASTN/number.svg "number")
-
-
-## string
-
-![string](./railroad-diagrams/ASTN/string.svg "string")
-
-## escaped-character
-![escaped-character](./railroad-diagrams/ASTN/escaped-character.svg "escaped-character")
-
-
-## array-of-key-value-pairs-and-inactivated-blocks
-![array-of-key-value-pairs-and-inactivated-blocks](./railroad-diagrams/ASTN/array-of-key-value-pairs-and-inactivated-blocks.svg "array-of-key-value-pairs-and-inactivated-blocks")
-
-
-## key-value-pair-or-inactivated-block
-![key-value-pair-or-inactivated-block](./railroad-diagrams/ASTN/key-value-pair-or-inactivated-block.svg "key-value-pair-or-inactivated-block")
-
-
-## array-of-values-and-inactivated-blocks
-![array-of-values-and-inactivated-blocks](./railroad-diagrams/ASTN/array-of-values-and-inactivated-blocks.svg "array-of-values-and-inactivated-blocks")
-
-
-## value-or-inactivated-block
-![value-or-inactivated-block](./railroad-diagrams/ASTN/value-or-inactivated-block.svg "value-or-inactivated-block")
-
--->
-
-# Canonical forms
+# Canonical form
 ASTN texts can conform to a cannonical form, but are not required to.
 A cannonical form prescribes the part of the syntax of a text that is considered to have no semantic relevance, specifically:
 * string wrapping
@@ -140,7 +96,7 @@ A cannonical form prescribes the part of the syntax of a text that is considered
 
 ASTN Generators should generate ASTN texts that conform to the canonical form.
 ## string wrapping
-In ASTN, there are 3 flavors of string wrapping: `"`, `'` and ` ` `.
+In ASTN, there are 3 flavors of string wrapping: `"`, `'` and `\``.
 The following table shows what the canonical form is for each possible occurence of a string:
 
 type | canonical form
