@@ -66,18 +66,18 @@ Example:
 
 Reformatting should be done according to the following rules:
 
-* A line break in an ASTN text is defined as follows:
-  * a carriage return followed by a line feed (\r\n)
-  * a line feed (\n)
-  * a carriage return not followed by a line feed (\r)
+* A line break is defined as follows:
+  * a carriage return followed by a line feed (\r\n),
+  * a line feed (\n),
+  * or a carriage return not followed by a line feed (\r)
 * A string line is defined as follows:
   * the array of code points starting after the start token ` up to the first line break in the string
   * the array of code points between 2 line breaks within the string
   * the array of code points after the last line break in the string up to the end token `
-* For an indented string, a reference indentation is determined as follows: The block of tabs and spaces following the preceding linebreak in the ASTN text that is not within another string. If there is no preceding linebreak, the reference indentation is an empty array of tabs and spaces
-* For every string line in an indented string do the following: If the string line starts with the reference indentation, strip this part of the line
+* A reference indentation is determined as follows: The block of tabs and spaces following the preceding linebreak in the ASTN text that is not within another multiline string. If there is no preceding linebreak, the reference indentation is an empty array of tabs and spaces
+* For every string line in an multiline string do the following: If the string line starts with the reference indentation, strip this part of the line
 
-A string line in an indented string that does not start with the reference indentation is considered valid, but will not be reformatted.
+A string line in a multiline string that does not start with the reference indentation is considered valid, but will not be reformatted.
 
 ## Comment support
 
@@ -93,6 +93,7 @@ A cannonical form prescribes the part of the syntax of a text that is considered
 * code point representation within strings.
 * whitespace
 * key ordering
+* multiline indentation
 
 ASTN Generators should generate ASTN texts that conform to the canonical form.
 ## string wrapping
@@ -126,6 +127,8 @@ name | whitespace allowed | canonical form
 ws:ss | yes | single space
 ws:n | yes | no whitespace
 ws:nl | yes | newline and proper indentation
+
+FIX: multiline indentation
 
 The indentation level is incremented at the `ws:indentation+` locations and decremented at the  `ws:indentation-` locations
 

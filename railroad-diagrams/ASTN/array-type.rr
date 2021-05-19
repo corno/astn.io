@@ -1,7 +1,0 @@
-ComplexDiagram(
-    Terminal('<', {cls:'added'}),
-    Terminal('ws:indentation+', {cls:'whitespace'}),
-    NonTerminal('array-of-values-and-inactivated-blocks', {cls:'changed'}),
-    Terminal('ws:indentation-', {cls:'whitespace'}),
-    Terminal('>', {cls:'added'}),
-)

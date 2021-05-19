@@ -1,7 +1,0 @@
-ComplexDiagram(
-    Terminal('|', {cls:'added'}),
-    Terminal('ws:ss', {cls:'whitespace'}),
-    NonTerminal('string', {cls:'changed'}),
-    Terminal('ws:ss', {cls:'whitespace'}),
-    NonTerminal('value', {cls:'changed'}),
-)
