@@ -85,7 +85,7 @@ A string line in an indented string that does not start with the reference inden
 
 # Types
 [railroad diagrams](./railroads.html)
-<!--ASTN supports several types.
+<!-- ASTN supports several types.
 
 
 
@@ -126,7 +126,9 @@ An ASTN number is identical to a JSON number
 
 
 ## value-or-inactivated-block
-![value-or-inactivated-block](./railroad-diagrams/ASTN/value-or-inactivated-block.svg "value-or-inactivated-block") -->
+![value-or-inactivated-block](./railroad-diagrams/ASTN/value-or-inactivated-block.svg "value-or-inactivated-block")
+
+-->
 
 # Canonical forms
 ASTN texts can conform to a cannonical form, but are not required to.
