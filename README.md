@@ -23,17 +23,22 @@ ASTN has the following changes to JSON:
 ASTN is designed to maximally support editing of texts that must conform to a schema. ASTN does not specify how schemas work, but includes the fundamental concepts to make maximal use these concepts.
 When editing data that conforms to a predefined schema the editor is bound by the schema rules in some places (metadata) and free in other places (instance data). This distinction is supported by the follwing features
 
-* **aposthrope support** - ASTN allows strings to be wrapped between `'` in addition to `"`. Rationale: This makes it possible to differentiate between strings that represent fixed strings (strings that cannot randomly be chosen by the editor of the text) vs variable strings (to be chosen by the editor). For example `'name': "Alex"` where `name` is fixed, and the `Alex` is variable.
+* **support for alternative string wrapping** besides quoted strings, ASTN supports 3 additional types of strings
 
-* **`type` support**. `types` are syntactically identical to `objects`, except for the surrounding tokens, instead of  `{` and `}`, they use `(` (U+0028) and `)` (U+0029). Rationale: a semantic distinction can be made between collections with keys determined by a schema (`types`) and collections with keys that can be chosen by the editor (`objects`). For example: `( 'name': "Alex", 'age': 10 )` vs `{ "Alex": 5, "Jack": 8 }`
+  * **aposthroped strings (')** - ASTN allows strings to be wrapped between `'`. Rationale: This makes it possible to differentiate between strings that represent fixed strings (strings that cannot randomly be chosen by the editor of the text) vs variable strings (to be chosen by the editor). For example `'name': "Alex"` where `name` is fixed, and the `Alex` is variable.
+  * **non wrapped strings** - all sequences of non-whitespace-characters that are not within a string, a comment or contain a structural token are a token in itself, named `nonwrapped string`. (note: According to this definition the JSON literals `false`, `true`, `null` and JSON number are also `nonwrapped strings`). These strings can be used to mimic keywords as they appear in programming languages.
+  * **multiline strings (\`)** - see `Multiline string support`
 
-* **`array type` support**. `array types` are identical to `arrays` in the same way that `types` are identical to `objects`. In this case, instead of the `[` and `]` as surrounding tokes, `<` (U+003C) and `>` (U+003E) are used. Rationale: a semantic distinction can be made between lists whose elements are determined by a schema (`array types`) and lists whose elements are determined by the editor (`arrays`).
-For example: a schema might require 3 values; name, age and vaccinated. This can be written as follows:  `<"Alex", 10, true>`. Adding a 4th element will lead to a validation error.
+* **`type` support**. There are 2 notations for `types`, called `verbose type` and `shorthand type`.
+
+  * **`verbose types`** are JSON `objects`, where the surrounding structural tokens  `{` and `}`, are replaced by `(` (U+0028) and `)` (U+0029). Rationale: a semantic distinction can be made between collections with keys determined by a schema (`types`) and collections with keys that can be chosen by the editor (`objects`). For example: `( 'name': "Alex", 'age': 10 )` vs `{ "Alex": 5, "Jack": 8 }`. In ASTN `objects` with `{` and `}` are called `dictionaries`
+  * **`shorthand types`**. are `arrays` in the same way that `verbose types` are `objects`. In this case, instead of the the structural tokens `[` and `]` as surrounding structural tokes, `<` (U+003C) and `>` (U+003E) are used. Rationale: a semantic distinction can be made between lists whose elements are determined by a schema (`shorthand types`) and `lists` whose elements are determined by the editor (`arrays`).
+For example: a schema type might require 3 values; name, age and vaccinated. This can be written in shorthand as follows:  `<"Alex", 10, true>`. Adding a 4th element would lead to a validation error.
 
 * **a text can start with a header specifying the schema**. The header specifies the schema to which the text should conform. There are 2 options:
 
   * A reference to an extenal schema, indicated by an exclamation mark (U+0021), followed by a string. For example: `! "myorg/myschema1.0"`
-  * An internal schema. The schema is embedded in the text. This is useful when you want to guarantee that a text will forever have its schema available. This is indicated by a double exclamation mark, followed by a string specifying a schema schema and then followed  a value. For example: `! ! "myorg/myschemaschema1.0" ...a value that represents the schema...`. The schema schema specifies to which the following (internal) schema should conform. This internal schema can then be used to validate the body that follows.
+  * An internal schema. The schema is embedded in the text. This is useful when you want to guarantee that a text will forever have its schema available. This is indicated by a double exclamation mark, followed by a string specifying a `schema schema` and then followed  a value. For example: `! ! "myorg/myschemaschema1.0" ...a value that represents the schema...`. The `schema schema` specifies to which the following (internal) schema should conform. This internal schema can then be used to validate the body that follows.
 
 
 ## Tagged Union support
@@ -57,10 +62,13 @@ These multiline strings are indentation aware. This means that an ASTN processor
 Example:
 ````
 {
-    'content': `this is a
-    string that spans multiple lines.
-    Indentation before each line should be ignored up to the point where the first line started.
-     So, in the resulting string, the 3 lines above should have no indentation and this line should have an indentation of 1 space`
+    'content': `this is a string that spans
+    multiple lines.
+    Indentation before each line should be ignored
+    up to the point where the first line started.
+    So, in the resulting string, the all lines except
+    for the last one have no indentation and
+     this line has an indentation of 1 space`
 }
 ````
 
@@ -77,10 +85,10 @@ Reformatting should be done according to the following rules:
 * A reference indentation is determined as follows: The block of tabs and spaces following the preceding linebreak in the ASTN text that is not within another multiline string. If there is no preceding linebreak, the reference indentation is an empty array of tabs and spaces
 * For every string line in an multiline string do the following: If the string line starts with the reference indentation, strip this part of the line
 
-A string line in a multiline string that does not start with the reference indentation is considered valid, but will not be reformatted.
+A string line in a multiline string that does not start with the reference indentation is considered improperly formatted but nevertheless valid, and will not be reformatted by a processor, so all whitespace at the beginning of the line is considered part of that string.
 
 ## Comment support
-
+FIX
 
 
 # Types
@@ -92,8 +100,6 @@ A cannonical form prescribes the part of the syntax of a text that is considered
 * string wrapping
 * code point representation within strings.
 * whitespace
-* key ordering
-* multiline indentation
 
 ASTN Generators should generate ASTN texts that conform to the canonical form.
 ## string wrapping
@@ -105,20 +111,19 @@ type | canonical form
 reference to external schema | "
 reference to external schema schema | "
 keys in objects | "
-keys in types | '
-the option in a tagged union | '
-values | " or `
+keys in types (schema identifiers) | '
+the option in a tagged union (schema identifiers') | '
+strings values | ' or " or \` or unwrapped (`< 'valid' "also valid" also valid \`this too\` >`)
 
 ## code point representation within strings
-if the code point is a ", a ' or a ` and not within a string wrapped in the same code point, it should not be escaped
 
-1 For example: this is not correct: `"a quote: \""` and should be: `"a quote: ""`
+1 if the code point is a ", a ' or a \` and not within a string wrapped in the same code point, it should not be escaped For example: this is not correct: `'a quote: \"'` and should be: `'a quote: "'`
 
-2 If a code point is one of the other escaped characters, it should be written in the shorthand escaped form, for example: `"\n"`
+2 `\n`, `\r`, `\t`, in quoted and apostrophed strings should be written in the shorthand escaped form, for example: `"\n"`
 
-3 If a code point has a regular representation, it should be used: This is not correct: `"\u0041"`, it should be: `"A"`
+3 `\n`, `\r`, `\t`, in multiline strings should be the original characters, for example a tab: `\`  \``
 
-4 all other code points should be with the 6 digit \uxxxx representation
+4 All other code point that are not control characters should not be escaped. This is not correct: `"\u0041"`, it should be: `"A"`. This means that only the control characters may use the hexadecimal escape format
 
 ## whitespace
 The canonical use of whitespace is described in the railroad diagrams. There are 3 options:
@@ -128,13 +133,17 @@ The canonical use of whitespace is described in the railroad diagrams. There are
 | ws:n | yes | no whitespace |
 | ws:nl | yes | newline and proper indentation |
 
-FIX: multiline indentation
-
 The indentation level is incremented at the `ws:indentation+` locations and decremented at the  `ws:indentation-` locations
 
-
-## key ordering
-keys in objects and types should be ordered according to a binary comparison of their unicode representation. This means that ordering is case sensitive. This might be a drawback while editing a text but this is by design. The alternative has an even bigger drawback: a very complex and arbitrary collation algorithm that needs to be specified and implemented by all generators.
+# Semantic/meaningful tokens
+There are only 7 tokens in ASTN that have significance:
+* 'Open Object' (either `verbose type` or `dictionary`)
+* 'Open Array' (either `shorthand type` or `list`)
+* 'Close Object'
+* 'Close Array'
+* 'Tagged Union Start'
+* 'Multiline Sting' (string wrapped in backticks)
+* 'Simple String (string with either no wrapping, quotes or apostrophes)
 
 # FAQ
 ## Why not use an existing syntax
@@ -145,3 +154,4 @@ We looked at the following syntaxes:
 * XML
 * YAML
 * JSON5
+* HJSON

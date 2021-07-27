@@ -19,9 +19,9 @@ ComplexDiagram(
                 Sequence(
                     Terminal('ws:n', {cls: 'whitespace'}),
                     ',',
-                    Terminal('ws:nl', {cls: 'whitespace'}),
                 )
-            )
+            ),
+            Terminal('ws:nl', {cls: 'whitespace'}),
         ),
     )
 )
