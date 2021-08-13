@@ -1,14 +1,16 @@
 (
-    'document name': "ABC",
-    'authors': 
-    'paragraphs': [
-        (
-            'title': "intro",
-            'text': "this is the intro"
-        ),
-        "1": (
-            'title': "intro",
-            'text': "this is the intro"
+    'projects': {
+        "upgrade server": (
+            'tasks': {
+                //some comment
+                "kickoff": (
+                    'action holder': "Laura"
+                    'priority': | 'Medium' ( )
+                    'involved team members': {
+                        "Alex": ( )
+                    }
+                )
+            }
         )
     }
 )
