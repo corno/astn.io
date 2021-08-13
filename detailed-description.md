@@ -52,6 +52,7 @@ strings values | ' or " or \` or unwrapped (`< 'valid' "also valid" also valid \
 
 ## whitespace
 The canonical use of whitespace is described in the railroad diagrams. There are 3 options:
+
 name | whitespace allowed | canonical form
 --|--|--
 ws:ss | yes | single space
